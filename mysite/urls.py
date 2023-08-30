@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pdf import views as pdf_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', pdf_views.accept, name='accept'),
+    path('<int:id>', pdf_views.resume, name='resume'),
+    path('resume_list', pdf_views.resume_list, name='resume_list'),
 ]
